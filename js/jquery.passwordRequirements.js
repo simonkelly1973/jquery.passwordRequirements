@@ -21,7 +21,8 @@
 				useSpecial: true,
 				infoMessage: '',
 				style: "light", // Style Options light or dark
-				fadeTime:300 // FadeIn / FadeOut in milliseconds
+				fadeTime:300, // FadeIn / FadeOut in milliseconds
+		    		notify: null
             };
 
             options =  $.extend(defaults, options);
@@ -96,8 +97,14 @@
 				var checkCompleted = function () {
 					if (numCharactersDone === true && useLowercaseDone === true && useUppercaseDone === true && useNumbersDone === true && useSpecialDone === true) {
 						deleteMessage();
+						if(o.notify) {
+							o.notify(true);
+						}
 					} else {
 						showMessage();
+						if(o.notify) {
+							o.notify(false);
+						}
 					}
 				};
 				
