@@ -9,16 +9,26 @@
 </head>
 
 <body>
-    <form style="margin:300px">
+    <form style="margin:300px" action="#">
         <input type="password" class="pr-password">
+	<input type="submit" value="Submit" id="button1" disabled>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='js/lib/jquery-1.9.1.min.js'>\x3C/script>")</script>
     <script src="js/jquery.passwordRequirements.min.js"></script>
     <script>
+	function enableButton(valid) {
+		$("#button1").prop("disabled",!valid);
+		if(valid) {
+			console.log("The password is now valid");
+		} else {
+			console.log("Not valid yet");
+		}
+	}
+
         /* trigger when page is ready */
         $(document).ready(function (){
-            $(".pr-password").passwordRequirements();
+	    $(".pr-password").passwordRequirements({notify: enableButton});
         });
     </script>
 </body>
