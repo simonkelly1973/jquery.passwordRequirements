@@ -125,8 +125,6 @@
 				$(this).on("keyup focus", function (){
 					var thisVal = $(this).val();  
 					
-					checkCompleted();
-					
 					// Check # of characters
 					if ( thisVal.length >= o.numCharacters ) {
 						// console.log("good numCharacters");
@@ -185,6 +183,8 @@
 							useSpecialDone = false;
 						}
 					}
+					checkCompleted();
+
 				});
             });
         }
