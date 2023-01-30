@@ -78,7 +78,13 @@ options: 'dark', 'light'
 default: 300
 options: integer
 `````
+<b>notify</b> (A function that will be called each time the password is checked)
+`````html
+default: null
+options: a javascript function that takes a boolean.  The boolean will be true if the password matches the criteria, otherwise false
 
+See the demo.html for a simple example that enables a button only when the password is valid
+`````
 
 ### License
 Copyright (c) 2014 Elation Base
